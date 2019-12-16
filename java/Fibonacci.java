@@ -1,6 +1,11 @@
+import java.util.Arrays;
+import java.util.OptionalDouble;
+import java.util.stream.Collectors;
+
 /**
- * Class used to calculate the fibonacci of some number many times and
- * each time print the total time it took to calculate the value
+ * Class used to calculate the fibonacci of some number many times and each time
+ * print the total time it took to calculate the value
+ *
  * @author Rodrigo Ramirez
  */
 public class Fibonacci {
@@ -33,14 +38,28 @@ public class Fibonacci {
      */
     public static void trackExecutionSpeed() {
         System.out.println("Average time to execute f(90) in nanoseconds");
-        for(int i = 0; i < 200; i++) {
+        final int EXECUTION_TIMES = 200;
+        final int CAL_FAB_TIMES = 50000;
+        double[] results = new double[EXECUTION_TIMES];
+        for(int i = 0; i < EXECUTION_TIMES; i++) {
             long startTime = System.nanoTime();
-            for(int j = 0; j < 50; j++) {
+            for(int j = 0; j < CAL_FAB_TIMES; j++) {
                 f(90);
             }
             long totalTime = System.nanoTime() - startTime;
-            System.out.println(String.format("%f", totalTime / 50.0));
+            results[i] = totalTime/CAL_FAB_TIMES;
         }
+
+        // System.out.println(String.format(
+        //     "Java Result: Avarage=%fms, Detail=%s",
+        //     Arrays.stream(results).average().orElse(0.0D),
+        //     String.join(",", Arrays.stream(results).boxed().map(d -> d.toString()).toArray(String[]::new)))
+        // );
+
+        System.out.println(String.format(
+            "Java Result: Avarage=%fms",
+            Arrays.stream(results).average().orElse(0.0D))
+        );
     }
 
     public static void main(String[] args) {

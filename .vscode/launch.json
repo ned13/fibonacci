@@ -5,7 +5,7 @@
             "name": "CodeLens (Launch) - Fibonacci",
             "request": "launch",
             "mainClass": "Fibonacci",
-            "projectName": "fibonacci_a40b9726"
-        }
+            "projectName": "fibonacci_ned_f8ac6cf4"
+        },
     ]
 }

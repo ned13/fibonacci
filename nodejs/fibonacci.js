@@ -39,7 +39,7 @@ function track_execution_speed() {
     // console.log(`Node.js Result: Avarage=${average}ms, Detail=${detail}`);
 
     const average = results.reduce((p, c) => p + BigInt(c), BigInt(0)) / BigInt(results.length);
-    console.log(`Node.js Result: Avarage=${average}ms`);
+    console.log(`Node.js Result: Avarage=${average}ns`);
 }
 
 track_execution_speed();

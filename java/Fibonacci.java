@@ -57,7 +57,7 @@ public class Fibonacci {
         // );
 
         System.out.println(String.format(
-            "Java Result: Avarage=%fms",
+            "Java Result: Avarage=%fns",
             Arrays.stream(results).average().orElse(0.0D))
         );
     }

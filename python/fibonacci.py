@@ -23,12 +23,21 @@ def f(n):
 # Prints the average time it takes to calculate f(n)
 def track_execution_speed():
     print("Average time to execute f(90) in nanoseconds\n")
-    for i in range(200):
-        start_time = time.time()
-        for j in range(50):
+    EXECUTION_TIMES = 200
+    CAL_FAB_TIMES = 5000
+    results = list(range(EXECUTION_TIMES))
+    for i in list(range(EXECUTION_TIMES)):
+        start_time = time.time_ns()
+        for j in list(range(CAL_FAB_TIMES)):
             f(90)
-        total_time = time.time() - start_time
-        print(1e+9 * total_time/50)
+
+        total_time = (time.time_ns() - start_time)
+        results[i] = total_time / CAL_FAB_TIMES
+        # print(results[i])
+        # print(1e+9 * total_time/50)
+
+    average = sum(results) / len(results)
+    print("Python Result: Avarage=%.5fns"% (average));
 
 
 track_execution_speed()

@@ -4,9 +4,9 @@
 package main
 
 import (
+	"fmt"
 	"time"
 )
-
 
 // Calculates the Fibonacci of n
 func f(n int) int {
@@ -27,19 +27,27 @@ func f(n int) int {
 	return result
 }
 
-
 // Prints the average time it takes to calculate f(n)
 func trackExecutionSpeed() {
 	println("Average time to execute f(90) in nanoseconds")
-	for i := 0; i < 200; i++ {
+	const EXECUTION_TIMES = 200
+	const CAL_FAB_TIMES = 50000
+	var results [EXECUTION_TIMES]float64
+	for i := 0; i < EXECUTION_TIMES; i++ {
 		startTime := time.Now()
-		for j := 0; j < 50; j++ {
+		for j := 0; j < CAL_FAB_TIMES; j++ {
 			f(90)
 		}
 		totalTime := time.Since(startTime)
-		println(totalTime.Nanoseconds() / 50.0)
+		results[i] = float64(totalTime.Nanoseconds()) / float64(CAL_FAB_TIMES)
 	}
 
+	var total float64 = 0
+	for _, r := range results {
+		total += r
+	}
+	var average float64 = total / float64(len(results))
+	fmt.Printf("Go Result: Avarage=%vns \n", average)
 	return
 }
 

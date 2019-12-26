@@ -18,13 +18,29 @@ java Fibonacci
 node fibonacci.js
 ```
 
+### Go
+```bash
+go run ./fibonacci.go
+```
+
+### Python
+```bash
+python3 ./fibonacci.py
+```
+
 ### Result
 #### EXECUTION_TIMES = 200, CAL_FAB_TIMES = 5000000
 - OS: MacOS
-- C#: DotNet Core 2.2.401
+- C#: DotNet Core 2.2.401 -> 3.1.100
 - Java: openjdk version "1.8.0_222"
 - Node: v10.16.3
+- Go: go version go1.13.5 darwin/amd64
+- Python: Python 3.7.5
 
-C# Result: Avarage=43.8677872ms
-Java Result: Avarage=65.345000ms
-Node.js Result: Avarage=162ms
+| Language      	| Average              	|
+|---------------	|----------------------	|
+| C# dotnetcore 	| 43.8677872ns         	|
+| Java          	| 65.345000ns          	|
+| Node.js       	| 162ns                	|
+| Go            	| 63.996324307999984ns 	|
+| Python           	| 7245.97070ns 	        |

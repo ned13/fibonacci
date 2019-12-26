@@ -48,8 +48,7 @@ namespace CSharp
             }
 
             //Console.WriteLine($"C# Result: Avarage={results.Average()}ms, Detail={String.Join(",", results)}");
-
-            Console.WriteLine($"C# Result: Avarage={results.Average()}ms");
+            Console.WriteLine($"C# Result: Avarage={results.Average()}ns");
         }
 
         public static void Main(string[] args)
